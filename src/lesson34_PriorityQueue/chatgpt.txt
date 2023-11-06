@@ -1,0 +1,71 @@
+In Java, a PriorityQueue is an implementation of the Queue interface that provides
+a way to order elements based on their natural ordering or according to a specified comparator.
+It is part of the Java Collections Framework, introduced in Java 1.5.
+У Java PriorityQueue - це реалізація інтерфейсу Queue, яка надає можливість
+упорядковувати елементи за їх природнім порядком або за вказаним компаратором.
+Це частина Java Collections Framework і дозволяє додавати елементи до черги та видаляти їх за їх пріоритетом.
+
+Here are the key points about PriorityQueue in Java:
+Ось основні моменти про PriorityQueue в Java:
+
+Ordering: Elements in a PriorityQueue are ordered either by their natural ordering or by a specified comparator.
+This means you can define how elements are ordered in the queue.
+Упорядкування: Елементи у PriorityQueue упорядковані або за природнім порядком, або за вказаним компаратором.
+Це означає, що ви можете визначити, як елементи упорядковані у черзі.
+
+Priority: When elements are added to the queue, they are ordered based on their priority.
+Elements with higher priority (as defined by the comparison logic) are dequeued before elements with lower priority.
+Пріоритет: Коли елементи додаються до черги, вони упорядковуються за їхнім пріоритетом.
+Елементи з вищим пріоритетом (визначеним порівняльною логікою) видаляються з черги перед елементами з нижчим пріоритетом.
+
+Implementation: Internally, a binary heap is used to implement a PriorityQueue.
+This data structure allows for efficient insertion and removal of elements,
+making PriorityQueue suitable for tasks where you need to maintain
+a dynamically changing priority order of elements.
+Реалізація: Внутрішньо для реалізації PriorityQueue використовується бінарна купа.
+Ця структура даних дозволяє ефективно вставляти та видаляти елементи,
+що робить PriorityQueue підходящою для завдань,
+де потрібно підтримувати динамічно змінний пріоритет елементів.
+
+Null Elements: PriorityQueue does not allow null elements.
+Attempting to add null to a PriorityQueue will result in a NullPointerException.
+Null-елементи: PriorityQueue не дозволяє null-елементи.
+Спроба додати null до PriorityQueue призведе до NullPointerException.
+
+Performance: Basic operations such as insertion, deletion,
+and retrieval of the highest-priority element (peek)
+all have logarithmic time complexity, which ensures
+efficient performance even with a large number of elements.
+Продуктивність: Основні операції, такі як вставка, видалення
+та отримання елемента з найвищим пріоритетом (peek),
+мають логарифмічну складність, що забезпечує ефективну
+продуктивність навіть з великою кількістю елементів.
+
+Here's a simple example of how you might use a PriorityQueue to sort elements:
+Ось простий приклад того, як ви можете використовувати PriorityQueue для сортування елементів:
+
+import java.util.PriorityQueue;
+public class Main {
+    public static void main(String[] args) {
+        // Creating a PriorityQueue with integers
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        // Adding elements to the PriorityQueue
+        pq.add(5);
+        pq.add(3);
+        pq.add(7);
+        pq.add(1);
+
+        // Elements will be dequeued in ascending order due to natural ordering
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll()); // Output: 1, 3, 5, 7
+        }
+    }
+}
+
+In this example, integers are added to the PriorityQueue,
+and they are automatically sorted in ascending order
+when dequeued due to their natural ordering.
+У цьому прикладі цілі числа додаються до PriorityQueue,
+і вони автоматично сортуються за зростанням
+при видаленні через їхній природний порядок.

@@ -1,0 +1,77 @@
+В Java, інтерфейс Predicate<T> є частиною пакету java.util.function
+і використовується для визначення умови, яка може бути застосована до об'єкта типу T.
+Цей інтерфейс містить один метод:
+
+boolean test(T t);
+
+Метод test(T t) приймає об'єкт типу T і повертає true,
+якщо умова задовольняється для цього об'єкта, і false в іншому випадку.
+Цей інтерфейс дозволяє використовувати функціональні програмувальні підходи в Java,
+наприклад, коли ви хочете фільтрувати колекції об'єктів за певною умовою
+або виконувати інші операції з використанням умов.
+Наприклад, ви можете використовувати Predicate для фільтрації списку чисел,
+залишаючи лише парні числа:
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Використання Predicate для фільтрації парних чисел
+        Predicate<Integer> isEven = num -> num % 2 == 0;
+        numbers.removeIf(isEven.negate()); // залишаємо лише парні числа
+
+        System.out.println(numbers); // Виведе: [2, 4, 6, 8, 10]
+    }
+}
+
+У цьому прикладі isEven є об'єктом типу Predicate<Integer>,
+який визначає, чи є число парним. Метод negate() використовується для створення предикату,
+який відповідає протилежній умові (непарні числа в цьому випадку).
+Це лише один із способів використання інтерфейсу Predicate<T> в Java
+для роботи з умовами у функціональному програмуванні.
+
+
+
+
+User
+а ще щось цікаве
+ChatGPT
+Звісно, Predicate<T> може бути використаний для складних умов
+та комбінування декількох предикатів для отримання більш специфічних умов.
+У Java 8 і вище, інтерфейс Predicate<T> має кілька методів за замовчуванням,
+які дозволяють комбінувати предикати:
+
+and(Predicate<T> other): Повертає предикат, який представляє собою логічне "І" (AND)
+між поточним предикатом та іншим предикатом.
+
+Predicate<Integer> isEven = num -> num % 2 == 0;
+Predicate<Integer> isGreaterThanTen = num -> num > 10;
+
+Predicate<Integer> isEvenAndGreaterThanTen = isEven.and(isGreaterThanTen);
+У цьому прикладі isEvenAndGreaterThanTen буде відповідати числам,
+які є парними та більшими за 10.
+
+or(Predicate<T> other): Повертає предикат,
+який представляє собою логічне "АБО" (OR) між поточним предикатом та іншим предикатом.
+
+Predicate<Integer> isEven = num -> num % 2 == 0;
+Predicate<Integer> isMultipleOfThree = num -> num % 3 == 0;
+
+Predicate<Integer> isEvenOrMultipleOfThree = isEven.or(isMultipleOfThree);
+У цьому прикладі isEvenOrMultipleOfThree буде відповідати числам,
+які є парними або кратними трьом.
+
+negate(): Повертає предикат, який представляє собою логічне "НЕ" (NOT) поточного предикату.
+
+java
+Copy code
+Predicate<Integer> isEven = num -> num % 2 == 0;
+Predicate<Integer> isNotEven = isEven.negate();
+У цьому прикладі isNotEven буде відповідати непарним числам.
+
+Ці методи дозволяють вам зручно комбінувати умови за допомогою Predicate<T>
+і реалізувати складні логічні перевірки у вашому програмному коді.

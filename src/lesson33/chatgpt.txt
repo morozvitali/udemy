@@ -1,0 +1,66 @@
+In Java, a Queue is a data structure that represents a collection of elements. It follows the First-In-First-Out (FIFO) principle,
+meaning that the first element added to the queue will be the first one to be removed. Java provides a built-in Queue interface that is a part of the Java Collections Framework.
+Here are the key points about queues in Java:
+У Java черга — це структура даних, яка представляє набір елементів. Він дотримується принципу FIFO (First In-First Out),
+тобто перший елемент, доданий до черги, буде першим видалений. Java надає вбудований інтерфейс Queue, який є частиною Java Collections Framework.
+Ось ключові моменти про черги в Java:
+
+    Interface: The Queue interface extends the Collection interface and represents a collection of objects waiting to be processed.
+    It defines methods for adding elements (offer()), removing elements (poll()), and examining the element at the front of the queue (peek()).
+    Інтерфейс: інтерфейс Queue розширює інтерфейс Collection і представляє колекцію об’єктів, які очікують на обробку.
+    Він визначає методи додавання елементів (offer()), видалення елементів (poll()) і перевірки елемента на початку черги (peek()).
+
+    Implementations: Java provides several classes that implement the Queue interface, including LinkedList, ArrayDeque, and PriorityQueue. Each implementation has its own characteristics and use cases.
+    Реалізації: Java надає кілька класів, які реалізують інтерфейс Queue, включаючи LinkedList, ArrayDeque та PriorityQueue. Кожна реалізація має свої особливості та випадки використання.
+
+        LinkedList can be used as a basic queue implementation. Elements are added at the end and removed from the beginning.
+        LinkedList можна використовувати як базову реалізацію черги. Елементи додаються в кінці і видаляються з початку.
+
+        ArrayDeque is a resizable array implementation of a queue. It allows elements to be added and removed from both ends efficiently.
+        ArrayDeque — це реалізація черги в масиві зі змінним розміром. Це дозволяє ефективно додавати та видаляти елементи з обох кінців.
+
+        PriorityQueue is an implementation of a priority queue, where elements are ordered based on their natural ordering or by a specified comparator.
+        PriorityQueue — це реалізація черги пріоритетів, де елементи впорядковуються на основі їх природного порядку або за допомогою визначеного компаратора.
+
+    Operations:
+        offer(element): Adds an element to the end of the queue.
+        offer(element): додає елемент у кінець черги.
+
+        poll(): Removes and returns the element at the front of the queue. Returns null if the queue is empty.
+        poll(): видаляє та повертає елемент на початку черги. Повертає значення null, якщо черга порожня.
+
+        peek(): Returns the element at the front of the queue without removing it. Returns null if the queue is empty.
+        peek(): повертає елемент на початку черги, не видаляючи його. Повертає значення null, якщо черга порожня.
+
+Here's an example of how you can use a Queue in Java:
+Ось приклад того, як ви можете використовувати чергу в Java:
+
+---------------------------------------------
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        Queue<String> queue = new LinkedList<>();
+
+        // Adding elements to the queue
+        queue.offer("First");
+        queue.offer("Second");
+        queue.offer("Third");
+
+        // Removing and printing elements from the queue
+        while (!queue.isEmpty()) {
+            System.out.println(queue.poll());
+        }
+    }
+}
+-----------------------------------------------
+Output:
+First
+Second
+Third
+
+In this example, elements are added to the queue using offer() and then removed and printed using poll().
+The elements are processed in the order they were added, following the FIFO principle.
+У цьому прикладі елементи додаються до черги за допомогою offer(), а потім видаляються та друкуються за допомогою poll().
+Елементи обробляються в порядку їх додавання за принципом FIFO

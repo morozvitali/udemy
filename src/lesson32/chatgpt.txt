@@ -1,0 +1,53 @@
+    In Java, a LinkedHashSet is a collection class that combines the features of a HashSet and a LinkedList. It is an implementation of the Set interface and extends HashSet.
+    Here's a brief overview:
+    У Java LinkedHashSet — це клас колекції, який поєднує функції HashSet і LinkedList. Це реалізація інтерфейсу Set і розширює HashSet.
+    Ось короткий огляд:
+
+    1 Uniqueness: Like other Set implementations, LinkedHashSet does not allow duplicate elements. Each element in a LinkedHashSet must be unique.
+    Унікальність: як і інші реалізації Set, LinkedHashSet не допускає повторюваних елементів. Кожен елемент у LinkedHashSet має бути унікальним.
+
+    2 Ordering: Unlike a HashSet, LinkedHashSet maintains the insertion order of elements.
+    When you iterate through a LinkedHashSet, the elements are returned in the order they were added.
+    Упорядкування: на відміну від HashSet, LinkedHashSet підтримує порядок вставки елементів.
+    Коли ви проходите через LinkedHashSet, елементи повертаються в порядку їх додавання.
+
+
+    3 Implementation: Internally, LinkedHashSet is implemented as a hash table with a linked list
+    running through it, so it provides fast access and also maintains the order of elements.
+    Реалізація: внутрішньо LinkedHashSet реалізовано як хеш-таблицю зі зв’язаним списком,
+    що проходить через неї, тому він забезпечує швидкий доступ і також підтримує порядок елементів.
+
+
+    4 Performance: The performance of a LinkedHashSet is generally slightly slower than a HashSet
+    due to the added overhead of maintaining the linked list, but it provides predictable iteration order,
+    making it useful in scenarios where you need to maintain the insertion order of elements.
+    Продуктивність. Продуктивність LinkedHashSet зазвичай трохи повільніша, ніж HashSet,
+    через додаткові витрати на підтримку пов’язаного списку, але він забезпечує передбачуваний порядок ітерацій,
+    що робить його корисним у сценаріях, коли потрібно підтримувати порядок вставки елементів.
+
+
+Here's an example of how you can create a LinkedHashSet in Java:
+Ось приклад того, як ви можете створити LinkedHashSet у Java:
+---------------------------------------------------------
+
+
+LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>();
+
+// Adding elements
+linkedHashSet.add("Apple");
+linkedHashSet.add("Banana");
+linkedHashSet.add("Orange");
+
+// Iterating through the LinkedHashSet
+for (String fruit : linkedHashSet) {
+    System.out.println(fruit);
+}
+
+Output:
+
+Apple
+Banana
+Orange
+---------------------------------------------------------
+In this example, the elements are stored in the order they were added, and iterating through the LinkedHashSet produces the same order.
+У цьому прикладі елементи зберігаються в тому порядку, в якому вони були додані, і повторення через LinkedHashSet створює той самий порядок.
